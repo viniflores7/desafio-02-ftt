@@ -14,9 +14,9 @@ def main(): #Função principal para rodar o programa
             linha(33, 52)
             print('''\033[1mEste é um Gerenciador de Personagem onde:\n
 1 - Você pode cadastrar seu personagem, editar as informações antes de confirma-lo
-2 - Você pode abrir o link da imagem que anexar e ela irá abrir em seu navegador padrão (Todas as orientações está no cadastro)
+2 - Você pode abrir o link da imagem que anexar e ela irá abrir em seu navegador padrão (Todas as orientações estão no cadastro)
 \nDono do projeto e programador: Vinícius Flores Ribeiro
-Versão: 1.4 BETA''')
+Versão: 1.5 BETA''')
             linha(33, 52)
             con = str(input('Aperte "Enter" para voltar para o Menu Principal: '))
             con = 2
@@ -145,7 +145,10 @@ def see_character(): #Ver os personagens e a imagem cadastrada
             for c, personagem in enumerate(lis):
                 print(f'\nNúmero: {c+1}')
                 for chave, valor in personagem.items():
-                    print(f'{chave}: {valor}')
+                    if chave == 'Link': #Colocando o link menor para a vizualização
+                        print(f'{chave}: {valor[0:40]}...')
+                    else:
+                        print(f'{chave}: {valor}')
             while True:
                 linha(34, 50)
                 print(opcoes_seecharacter())
